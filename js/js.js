@@ -1,5 +1,5 @@
 
-const swiper = new Swiper('.swiper-container', {
+const swiper = new Swiper('.swiper', {
   slidesPerView: 1,
   loop: true,
   pagination: {
@@ -70,13 +70,27 @@ menuLink.forEach(function (el) {
 let search = document.querySelector('.search')
 let searchLink = document.querySelector('.search-on-site');
 let searchClose = document.querySelector('.close-search');
+let searchHidden = document.querySelector('.search__hidden');
 
 searchLink.addEventListener('click', 
   function() {
-    search.classList.add('search-on-site--active');
+    searchHidden.classList.add('search-on-site--active');
   });
 
   searchClose.addEventListener('click', 
   function () {
-    search.classList.remove('search-on-site--active');
+    searchHidden.classList.remove('search-on-site--active');
   });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    let acc = new Accordion('.accordion__list', {
+    duration: 700,
+    elementClass: 'accordion__item',
+    triggerClass: 'accordion__top',
+    panelClass: 'accordion__bottom',
+    showMultiple: false,
+    openOnInit: [0],
+      collapse: false
+  });
+  })
